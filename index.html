@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação em Ação | Conectando Talentos ao Mercado</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== ESTILOS GERAIS (CSS) ==================== */
+        :root {
+            --primary-color: #0f4c81;      /* Azul Mar Escuro */
+            --primary-dark: #093358;       /* Azul Mar Profundo */
+            --secondary-color: #7c1c2e;    /* Vinho Rubi */
+            --secondary-dark: #57111f;     /* Vinho Rubi Escuro */
+            --danger-color: #ef4444;
+            --dark-color: #0d1b2a;         /* Tom Escuro Azulado */
+            --light-bg: #fcf4f6;           /* Vinho Claro suave */
+            --white: #ffffff;
+            --gray-text: #64748b;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navegação */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn-nav {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            transition: background 0.3s !important;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--secondary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .hero-text h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 14px rgba(124, 28, 46, 0.35);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--secondary-dark);
+        }
+
+        .hero-img img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Seção Container Padrão */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+        }
+
+        .section-title p {
+            color: var(--gray-text);
+        }
+
+        /* Passos Como Funciona */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .step-card {
+            background-color: #fdf2f4;
+            padding: 2.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* BOTÕES DE FILTRO DE CATEGORIAS */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: var(--white);
+            color: var(--dark-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(15, 76, 129, 0.25);
+        }
+
+        /* GRID DE EMPRESAS - LADO A LADO EM QUADRADINHOS */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            align-items: stretch;
+        }
+
+        .challenge-card {
+            background-color: #fdf2f4;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .challenge-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .challenge-content {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .company-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #f1f5f9;
+            color: var(--dark-color);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            margin-bottom: 0.6rem;
+            align-self: flex-start;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f3e8ff;
+            color: var(--secondary-color);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            margin-bottom: 0.6rem;
+            margin-left: 5px;
+        }
+
+        .challenge-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .challenge-content p {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .company-tips {
+            background-color: #fae8eb;
+            border-left: 4px solid var(--secondary-color);
+            padding: 0.8rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .company-tips h4 {
+            font-size: 0.82rem;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0.2rem;
+        }
+
+        .company-tips p {
+            font-size: 0.78rem;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        /* CRONÔMETRO DE PRAZO */
+        .countdown-box {
+            padding: 0.5rem 0.8rem;
+            background-color: #fae8eb;
+            border-radius: 8px;
+            border: 1px solid #f43f5e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .countdown-label {
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .countdown-timer {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .countdown-timer.expired {
+            color: var(--danger-color);
+        }
+
+        /* Formulários */
+        .form-section {
+            background-color: #fdf2f4;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .form-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-info.solution-bg {
+            background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+        }
+
+        .form-info.complaint-bg {
+            background: linear-gradient(135deg, var(--primary-dark), var(--dark-color));
+        }
+
+        .form-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-body {
+            padding: 3rem;
+            background-color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--secondary-color);
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 0.9rem;
+            color: var(--dark-color);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-success-custom {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-success-custom:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        .btn-danger-custom {
+            background-color: #881337;
+        }
+
+        .btn-danger-custom:hover {
+            background-color: #4c0519;
+        }
+
+        .message-box {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .success {
+            background-color: #fce7f3;
+            color: #831843;
+        }
+
+        .warning-msg {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        /* NOTIFICAÇÃO PUSH SIMULADA NO CELULAR */
+        .mobile-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            z-index: 9999;
+            display: none;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .notif-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .notif-app {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .notif-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .notif-body {
+            font-size: 0.8rem;
+            color: #475569;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* RESPONSIVIDADE (Tablets e Celulares) */
+        @media (max-width: 1024px) {
+            .challenges-grid, .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero, .form-section {
+                grid-template-columns: 1fr;
+            }
+            .challenges-grid, .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-notification {
+                right: 10px;
+                left: 10px;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i> EDUCAÇÃO EM AÇÃO
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#desafios">Desafios & Empresas</a></li>
+                <li><a href="#enviar-solucao">Enviar Solução</a></li>
+                <li><a href="#reclamacoes">Suporte</a></li>
+                <li><a href="#cadastro" class="btn-nav">Área do Aluno</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-text">
+            <h1>Resolva problemas reais. <span>Seja contratado.</span></h1>
+            <p>Conectamos alunos de escolas técnicas a desafios reais de empresas parceiras. Mostre sua agilidade, siga as recomendações das empresas e garanta sua vaga no mercado!</p>
+            <a href="#cadastro" class="hero-btn"><i class="fa-solid fa-user-plus"></i> Quero me Cadastrar</a>
+        </div>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Alunos trabalhando em equipe">
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section-container" id="como-funciona">
+        <div class="section-title">
+            <h2>Como Funciona o Projeto</h2>
+            <p>O caminho mais curto entre a sala de aula e a sua contratação.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <i class="fa-solid fa-building step-icon"></i>
+                <h3>1. A Empresa Envia</h3>
+                <p>Empresas parceiras publicam problemas técnicos e organizacionais com orientações e recomendações claras.</p>
+            </div>
+            <div class="step-card">
+                <i class="fa-solid fa-brain step-icon"></i>
+                <h3>2. O Aluno Resolve</h3>
+                <p>Você utiliza o conhecimento do seu curso técnico para criar uma solução ágil, bem documentada e eficiente.</p>
+            </div>
+            <div class="step-card">
+                <i class="fa-solid fa-briefcase step-icon"></i>
+                <h3>3. A Contratação Vem</h3>
+                <p>Os alunos que resolvem com rapidez e seguem as boas práticas recomendadas são contratados pelas empresas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESAFIOS E EMPRESAS -->
+    <section class="section-container" id="desafios">
+        <div class="section-title">
+            <h2>Desafios Ativos & Recomendações das Empresas</h2>
+            <p>Escolha um problema real de nossas empresas parceiras para resolver e se destacar.</p>
+        </div>
+
+        <!-- BOTÕES DE FILTRO POR CATEGORIA -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> Todos (6)</button>
+            <button class="filter-btn" data-filter="desenvolvimento"><i class="fa-solid fa-code"></i> Desenvolvimento (3)</button>
+            <button class="filter-btn" data-filter="administracao"><i class="fa-solid fa-chart-line"></i> Administração (3)</button>
+        </div>
+
+        <!-- GRID DE DESAFIOS LADO A LADO EM QUADRADINHOS -->
+        <div class="challenges-grid">
+
+            <!-- Empresa 1: LogiTech Brasil -->
+            <div class="challenge-card" data-category="administracao">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Análise de Dados">
+                <div class="challenge-content">
+                    <div>
+                        <span class="company-badge"><i class="fa-solid fa-truck-fast"></i> LogiTech Brasil</span>
+                        <span class="tag">Administração</span>
+                    </div>
+                    <h3>Otimização de Rotas e Estoque</h3>
+                    <p>Precisamos reduzir o tempo de separação de mercadorias no galpão principal e criar um relatório de controle visual de rotas.</p>
+                    <div class="company-tips">
+                      <h4><i class="fa-solid fa-lightbulb"></i> Recomendação:</h4>
+                      <p>Utilize planilhas organizadas no Excel/Sheets com gráficos intuitivos e um plano de ação 5W2H claro.</p>
+                  </div>
+                  <div class="countdown-box">
+                      <span class="countdown-label"><i class="fa-solid fa-clock"></i> Prazo:</span>
+                      <div class="countdown-timer" data-deadline="2026-09-28T23:59:59">
+                          <span class="days">00</span>d <span class="hours">00</span>h <span class="minutes">00</span>m <span class="seconds">00</span>s
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Empresa 2: CodeMaster Softwares -->
+          <div class="challenge-card" data-category="desenvolvimento">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Código de Programação">
+              <div class="challenge-content">
+                  <div>
+                      <span class="company-badge"><i class="fa-solid fa-code"></i> CodeMaster Softwares</span>
+                      <span class="tag">Desenvolvimento</span>
+                  </div>
+                  <h3>Automação de Validação de Dados</h3>
+                  <p>Precisamos de um script em Python eficiente para automatizar a leitura e filtragem manual de cadastros no sistema.</p>
+                  <div class="company-tips">
+                      <h4><i class="fa-solid fa-lightbulb"></i> Recomendação:</h4>
+                      <p>Priorizamos códigos organizados, bem comentados, alinhados com práticas de Clean Code e padronização de commits.</p>
+                  </div>
+                  <div class="countdown-box">
+                      <span class="countdown-label"><i class="fa-solid fa-clock"></i> Prazo:</span>
+                      <div class="countdown-timer" data-deadline="2026-09-25T18:00:00">
+                          <span class="days">00</span>d <span class="hours">00</span>h <span class="minutes">00</span>m <span class="seconds">00</span>s
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Empresa 3: Grupo VendasJá -->
+          <div class="challenge-card" data-category="administracao">
+              <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Reunião Corporativa">
+              <div class="challenge-content">
+                  <div>
+                      <span class="company-badge"><i class="fa-solid fa-store"></i> Grupo VendasJá</span>
+                      <span class="tag">Administração</span>
+                  </div>
+                  <h3>Estratégia de Retenção de Clientes</h3>
+                  <p>Elaborar um plano prático para reduzir a taxa de cancelamento e melhorar o fluxo de atendimento pré e pós-venda.</p>
+                  <div class="company-tips">
+                      <h4><i class="fa-solid fa-lightbulb"></i> Recomendação:</h4>
+                      <p>Apresente fluxogramas de atendimento interativos e estratégias focadas em Customer Success.</p>
+                  </div>
+                  <div class="countdown-box">
+                      <span class="countdown-label"><i class="fa-solid fa-clock"></i> Prazo:</span>
+                      <div class="countdown-timer" data-deadline="2026-09-30T23:59:59">
+                          <span class="days">00</span>d <span class="hours">00</span>h <span class="minutes">00</span>m <span class="seconds">00</span>s
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Empresa 4: CyberGuard Sec -->
+          <div class="challenge-card" data-category="desenvolvimento">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Cibersegurança">
+            <div class="challenge-content">
+                <div>
+                    <span class="company-badge"><i class="fa-solid fa-shield-halved"></i> CyberGuard Sec</span>
+                    <span class="tag">Desenvolvimento</span>
+                </div>
+                <h3>Interface Web de Monitoramento</h3>
+                <p>Desenvolver uma página web responsiva (HTML, CSS e JS) onde a equipe veja o status dos servidores em tempo real.</p>
+                <div class="company-tips">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Recomendação:</h4>
+                    <p>Damos preferência a layouts modernos (Mobile First), ágeis e sem frameworks pesados.</p>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-label"><i class="fa-solid fa-clock"></i> Prazo:</span>
+                    <div class="countdown-timer" data-deadline="2026-10-05T12:00:00">
+                        <span class="days">00</span>d <span class="hours">00</span>h <span class="minutes">00</span>m <span class="seconds">00</span>s
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empresa 5: FinanTech Soluções -->
+        <div class="challenge-card" data-category="administracao">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Gestão Financeira">
+            <div class="challenge-content">
+                <div>
+                    <span class="company-badge"><i class="fa-solid fa-chart-pie"></i> FinanTech Soluções</span>
+                    <span class="tag">Administração</span>
+                </div>
+                <h3>Modelagem de Fluxo de Caixa</h3>
+                <p>Criar uma estrutura de projeção de despesas operacionais e análise de ponto de equilíbrio para microempresas.</p>
+                <div class="company-tips">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Recomendação:</h4>
+                    <p>Planilhas dinâmicas incluindo indicadores financeiros (DRE, VPL) e relatórios executivos resumidos.</p>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-label"><i class="fa-solid fa-clock"></i> Prazo:</span>
+                    <div class="countdown-timer" data-deadline="2026-10-10T18:00:00">
+                        <span class="days">00</span>d <span class="hours">00</span>h <span class="minutes">00</span>m <span class="seconds">00</span>s
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empresa 6: CloudScale Labs -->
+        <div class="challenge-card" data-category="desenvolvimento">
+            <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80" alt="Computação em Nuvem">
+            <div class="challenge-content">
+                <div>
+                    <span class="company-badge"><i class="fa-solid fa-cloud"></i> CloudScale Labs</span>
+                    <span class="tag">Desenvolvimento</span>
+                </div>
+                <h3>API REST e Banco MySQL</h3>
+                <p>Desenvolver uma API simplificada em Node.js ou Python (Flask) integrada a um banco MySQL para inventários em nuvem.</p>
+                <div class="company-tips">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Recomendação:</h4>
+                    <p>Scripts SQL organizados, rotas REST bem definidas e documentação explicativa no README.</p>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-label"><i class="fa-solid fa-clock"></i> Prazo:</span>
+                    <div class="countdown-timer" data-deadline="2026-10-15T23:59:59">
+                        <span class="days">00</span>d <span class="hours">00</span>h <span class="minutes">00</span>m <span class="seconds">00</span>s
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ÁREA DE CADASTRO DO ALUNO -->
+<section class="section-container" id="cadastro">
+  <div class="form-section">
+      <div class="form-info">
+          <h3>Pronto para mostrar seu potencial?</h3>
+          <p>Cadastre-se para acessar o painel de desafios das empresas, enviar suas soluções dentro do prazo e conquistar sua oportunidade profissional.</p>
+      </div>
+      <div class="form-body">
+          <h2>Cadastro do Aluno</h2>
+          <form id="studentForm">
+              <div class="form-group">
+                  <label for="name">Nome Completo</label>
+                  <input type="text" id="name" placeholder="Ex: Maria Silva" required>
+              </div>
+              <div class="form-group">
+                  <label for="email">E-mail Escolar / Pessoal</label>
+                  <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+              </div>
+              <div class="form-group">
+                  <label for="course">Curso / Área de Estudo</label>
+                  <select id="course" required>
+                      <option value="">Selecione seu curso...</option>
+                      <option value="ds">Desenvolvimento de Sistemas / TI</option>
+                      <option value="adm">Administração / Gestão</option>
+                      <option value="outro">Outros Cursos Técnicos</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="password">Crie uma Senha</label>
+                  <input type="password" id="password" placeholder="Mínimo de 6 caracteres" required>
+              </div>
+              
+              <div class="checkbox-group">
+                  <input type="checkbox" id="notifyEmail" checked>
+                  <label for="notifyEmail">Desejo receber notificações e avisos de novos desafios neste e-mail.</label>
+              </div>
+
+              <button type="submit" class="submit-btn">Criar Minha Conta</button>
+          </form>
+          <div id="formMessage" class="message-box"></div>
+      </div>
+  </div>
+</section>
+
+<!-- ÁREA DE ENVIO DA RESOLUÇÃO DO PROBLEMA -->
+<section class="section-container" id="enviar-solucao">
+  <div class="form-section">
+      <div class="form-info solution-bg">
+          <h3><i class="fa-solid fa-rocket"></i> Envie sua Solução</h3>
+          <p>Concluiu a resolução do desafio? Envie o link do seu projeto ou repositório para avaliação imediata dos recrutadores da empresa parceira.</p>
+      </div>
+      <div class="form-body">
+          <h2>Submeter Resolução</h2>
+          <form id="solutionForm">
+              <div class="form-group">
+                  <label for="studentEmailSolution">E-mail Cadastrado</label>
+                  <input type="email" id="studentEmailSolution" placeholder="seuemail@exemplo.com" required>
+              </div>
+              <div class="form-group">
+                  <label for="solutionCompany">Empresa do Desafio</label>
+                  <select id="solutionCompany" required>
+                      <option value="">Selecione a empresa...</option>
+                      <option value="LogiTech Brasil">LogiTech Brasil (Otimização de Rotas)</option>
+                      <option value="CodeMaster Softwares">CodeMaster Softwares (Automação em Python)</option>
+                      <option value="Grupo VendasJá">Grupo VendasJá (Retenção de Clientes)</option>
+                      <option value="CyberGuard Sec">CyberGuard Sec (Interface Web)</option>
+                      <option value="FinanTech Soluções">FinanTech Soluções (Fluxo de Caixa)</option>
+                      <option value="CloudScale Labs">CloudScale Labs (API REST & Banco MySQL)</option>
+                  </select>
+              </div>
+              <div
+
+              class="form-group">
+              <label for="solutionLink">Link do Projeto / Repositório (GitHub, Drive, Figma, etc.)</label>
+              <input type="url" id="solutionLink" placeholder="https://github.com/seu-usuario/seu-projeto" required>
+          </div>
+          <div class="form-group">
+              <label for="solutionDescription">Resumo da Solução Aplicada</label>
+              <textarea id="solutionDescription" placeholder="Explique resumidamente como você resolveu o problema e quais metodologias/tecnologias utilizou..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn btn-success-custom"><i class="fa-solid fa-paper-plane"></i> Enviar Projeto para Empresa</button>
+        </form>
+        <div id="solutionMessage" class="message-box"></div>
+    </div>
+</div>
+</section>
+
+<!-- CENTRO DE RECLAMAÇÕES E SUPORTE -->
+<section class="section-container" id="reclamacoes">
+<div class="form-section">
+    <div class="form-info complaint-bg">
+        <h3><i class="fa-solid fa-headset"></i> Canal Direto de Suporte</h3>
+        <p>Teve algum problema com o enunciado do desafio, falha no sistema de envio de arquivos ou atraso no feedback da empresa? Relate abaixo para que nossa mediação entre em contato.</p>
+    </div>
+    <div class="form-body">
+        <h2>Centro de Reclamações</h2>
+        <form id="complaintForm">
+            <div class="form-group">
+                <label for="studentEmailComplaint">Seu E-mail Cadastrado</label>
+                <input type="email" id="studentEmailComplaint" placeholder="seuemail@exemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label for="targetCompany">Empresa Relacionada</label>
+                <select id="targetCompany" required>
+                    <option value="">Selecione a empresa...</option>
+                    <option value="LogiTech Brasil">LogiTech Brasil</option>
+                    <option value="CodeMaster Softwares">CodeMaster Softwares</option>
+                    <option value="Grupo VendasJá">Grupo VendasJá</option>
+                    <option value="CyberGuard Sec">CyberGuard Sec</option>
+                    <option value="FinanTech Soluções">FinanTech Soluções</option>
+                    <option value="CloudScale Labs">CloudScale Labs</option>
+                    <option value="Plataforma">Problema Geral na Plataforma</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="complaintType">Motivo do Relatório</label>
+                <select id="complaintType" required>
+                    <option value="">Selecione o motivo...</option>
+                    <option value="Atraso no Feedback">Atraso no retorno da proposta</option>
+                    <option value="Instruções Confusas">Instruções do desafio incompletas</option>
+                    <option value="Erro no Envio">Erro técnico ao enviar código/projeto</option>
+                    <option value="Outro">Outro problema</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="complaintText">Descrição Detalhada do Problema</label>
+                <textarea id="complaintText" placeholder="Explique o que aconteceu com o máximo de detalhes..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn btn-danger-custom"><i class="fa-solid fa-paper-plane"></i> Enviar Reclamação</button>
+        </form>
+        <div id="complaintMessage" class="message-box"></div>
+    </div>
+</div>
+</section>
+
+<!-- NOTIFICAÇÃO PUSH SIMULADA NO CELULAR -->
+<div id="phoneNotification" class="mobile-notification">
+  <div class="notif-header">
+      <div class="notif-app"><i class="fa-solid fa-envelope"></i> E-mail (Gmail)</div>
+      <span>agora mesmo</span>
+  </div>
+  <div class="notif-title">Educação em Ação</div>
+  <div class="notif-body" id="notifBodyText">
+      Seu cadastro foi concluído com sucesso!
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Projeto Multidisciplinar - **EDUCAÇÃO EM AÇÃO**. Todos os direitos reservados.</p>
+</footer>
+
+<!-- INTERATIVIDADE (JAVASCRIPT) -->
+<script>
+  // 1. LÓGICA DO FILTRO POR CATEGORIA
+  function initCategoryFilter() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const challengeCards = document.querySelectorAll('.challenge-card');
+
+      filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+              filterBtns.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+
+              const filterValue = btn.getAttribute('data-filter');
+
+              challengeCards.forEach(card => {
+                  const cardCategory = card.getAttribute('data-category');
+
+                  if (filterValue === 'all' || cardCategory === filterValue) {
+                      card.style.display = 'flex';
+                  } else {
+                      card.style.display = 'none';
+                  }
+              });
+          });
+      });
+  }
+
+
+            // 1. LÓGICA DE FILTRAGEM DOS CARD DE DESAFIOS
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const challengeCards = document.querySelectorAll('.challenge-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    challengeCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+
+  // 2. LÓGICA DOS CRONÔMETROS DE PRAZO
+  function initCountdowns() {
+      const timers = document.querySelectorAll('.countdown-timer');
+
+      timers.forEach(timer => {
+          const deadline = new Date(timer.getAttribute('data-deadline')).getTime();
+
+          function update() {
+              const now = new Date().getTime();
+              const diff = deadline - now;
+
+              if (diff <= 0) {
+                  timer.innerHTML = "Encerrado";
+                  timer.classList.add('expired');
+                  return;
+              }
+
+              const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+              const pad = num => String(num).padStart(2, '0');
+
+              const daysEl = timer.querySelector('.days');
+              const hoursEl = timer.querySelector('.hours');
+              const minEl = timer.querySelector('.minutes');
+              const secEl = timer.querySelector('.seconds');
+
+              if (daysEl) daysEl.innerText = pad(days);
+              if (hoursEl) hoursEl.innerText = pad(hours);
+              if (minEl) minEl.innerText = pad(minutes);
+              if (secEl) secEl.innerText = pad(seconds);
+          }
+
+          update();
+          setInterval(update, 1000);
+      });
+  }
+
+  // Inicialização dos Scripts
+  document.addEventListener('DOMContentLoaded', () => {
+      initCategoryFilter();
+      initCountdowns();
+  });
+
+  // 3. LÓGICA DO FORMULÁRIO DE CADASTRO DO ALUNO
+  document.getElementById('studentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const course = document.getElementById('course').value;
+      const notifyEmail = document.getElementById('notifyEmail').checked;
+      const messageDiv = document.getElementById('formMessage');
+
+      if (name && email && course) {
+          messageDiv.className = 'message-box success';
+          messageDiv.style.display = 'block';
+          messageDiv.innerHTML = `<i class="fa-solid fa-circle-check"></i> Parabéns, <strong>${name}</strong>! Seu cadastro foi realizado.`;
+          
+          if (notifyEmail) {
+              setTimeout(() => {
+                  showMobileNotification(email, name);
+              }, 1200);
+          }
+
+          document.getElementById('studentForm').reset();
+
+          setTimeout(() => {
+              messageDiv.style.display = 'none';
+          }, 5000);
+      }
+  });
+
+  // Simulação do Pop-up de Notificação Mobile
+  function showMobileNotification(email, name) {
+      const notifBox = document.getElementById('phoneNotification');
+      const notifBody = document.getElementById('notifBodyText');
+
+      notifBody.innerHTML = `<strong>Cadastro Concluído!</strong><br>Olá ${name}, enviamos os detalhes de acesso para o e-mail: <em>${email}</em>`;
+      notifBox.style.display = 'block';
+
+      setTimeout(() => {
+          notifBox.style.display = 'none';
+      }, 7000);
+  }
+
+  // 4. LÓGICA DO FORMULÁRIO DE ENVIO DA SOLUÇÃO
+  document.getElementById('solutionForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('studentEmailSolution').value;
+      const company = document.getElementById('solutionCompany').value;
+      const link = document.getElementById('solutionLink').value;
+      const solutionMessageDiv = document.getElementById('solutionMessage');
+
+      if (email && company && link) {
+          const solutionProtocol = 'SOL-' + Math.floor(100000 + Math.random() * 900000);
+
+          solutionMessageDiv.className = 'message-box success';
+          solutionMessageDiv.style.display = 'block';
+          solutionMessageDiv.innerHTML = `<i class="fa-solid fa-circle-check"></i> Solução enviada com sucesso para a <strong>${company}</strong>!<br><strong>Protocolo de Envio:</strong> ${solutionProtocol}. A empresa avaliará sua velocidade e qualidade de entrega. Boa sorte!`;
+
+          document.getElementById('solutionForm').reset();
+
+          setTimeout(() => {
+              solutionMessageDiv.style.display = 'none';
+          }, 7000);
+      }
+  });
+
+  // 5. LÓGICA DO CENTRO DE RECLAMAÇÕES
+  document.getElementById('complaintForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('studentEmailComplaint').value;
+      const company = document.getElementById('targetCompany').value;
+      const type = document.getElementById('complaintType').value;
+      const complaintMessageDiv = document.getElementById('complaintMessage');
+
+      if (email && company && type) {
+          const protocol = 'REC-' + Math.floor(100000 + Math.random() * 900000);
+
+          complaintMessageDiv.className = 'message-box warning-msg';
+          complaintMessageDiv.style.display = 'block';
+          complaintMessageDiv.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Reclamação registrada para a <strong>${company}</strong>!<br><strong>Protocolo nº:</strong> ${protocol}. Nossa equipe analisará o caso em até 48 horas.`;
+
+          document.getElementById('complaintForm').reset();
+
+          setTimeout(() => {
+              complaintMessageDiv.style.display = 'none';
+          }, 7000);
+      }
+  });
+</script>
+</body>
+</html>
